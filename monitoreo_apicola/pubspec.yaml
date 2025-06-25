@@ -1,0 +1,42 @@
+name: monitoreo_apicola
+description: "Sistema de monitoreo apícola con Flutter"
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.4.4 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  # Firebase
+  firebase_core: ^3.6.0
+  firebase_auth: ^5.3.1
+  cloud_firestore: ^5.4.3
+  fl_chart: ^0.64.0
+  pdf: ^3.10.6
+  printing: ^5.12.0
+  
+  # UI y utilidades
+  cupertino_icons: ^1.0.8
+  
+  # Internacionalización y fechas
+  intl: ^0.19.0  # ✅ IMPORTANTE: Versión actualizada
+  
+  # HTTP y almacenamiento
+  http: ^1.2.2
+  shared_preferences: ^2.3.2
+  google_fonts: ^6.2.1
+  provider: ^6.1.5
+  share_plus: ^11.0.0
+  path_provider: ^2.1.5
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true

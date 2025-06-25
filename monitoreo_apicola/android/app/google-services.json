@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "39414070165",
+    "project_id": "monitoreo-apicola",
+    "storage_bucket": "monitoreo-apicola.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:39414070165:android:67afc37d266b712f5e149c",
+        "android_client_info": {
+          "package_name": "com.example.monitoreo_apicola"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYnb_CuYYrFO7uozl1XiZ8_ZnCzfT169w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:39414070165:android:4094c7e4548118045e149c",
+        "android_client_info": {
+          "package_name": "com.mm.monitoreo_apicol"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYnb_CuYYrFO7uozl1XiZ8_ZnCzfT169w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

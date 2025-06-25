@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "monitoreo-apicola",
+  "private_key_id": "5f1dbe3ebc429b20f23fdc7c7fe9fadc437c8273",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQD1V65aXz0Xc/na\nXRvgtaIm978zyg5ELEZLkQzIpaxqA9W6zfHjkRVtzIJdcCCH1odSJqsg0IPvT13/\noe+dI9pWr1T2V4zuVs07zy1NHT1dUVHt+Zl03UN7rJplzzsuvkMWoG8uXAG5JbE3\nFcwnNfbqK0gd9S6GmVVgLTHVUrDEeoWqw+GwqZblY6eubVutNpNGMDTPDvDmLeR/\nZCqweCZFvuuQCb66I/IAd8VAMXkFx/hGkrkoteHb6+PEuzRnaeDVw5X/e4gpHpqp\nsIvtEZFxWkvifhqfVCxkJv4dGkyzcW4GvHfCZZ3CNHT9gmV/OoHGZepbHnp7fAZ4\nbgY8Ga9JAgMBAAECggEADnpGxE0hHRnaQUkun0tYmZVpEl9MCY3V9W5GeNionKDu\noyq1VB54S0BpjlCoOsaCucBPvOH7xyAXMJdCZ915FusbHRD8NLGpRBbtBMNC9GzG\nDur5uUG3/RD/E3RFI8mqdSgGfOUvsi3yj95Da9TtZdLOsKXf7FAZZPwwbUwx44Yn\nJSC1oxSJBl6Qst2vNDgYIOcO0oidBI3dh+0SX0/+Qnw/lGO7jGz+Eiw7gT4BvRxe\nh3kskLyWXAtInxT4M0YHNJ1JB38vqcPOOd0trhj0KgMCyCl+s/7hM/9Ex7q6QcBd\n5neQb4GDKaO0h2g+L6fz+T2soITqLfaU7WGcS5yEGQKBgQD7c0/R/h5UCTHCly+Q\n0VlugcdAcrnKzW323D06+Ncsf0fqzKpOepQAD25biMUYRPjFkvEAOLcju+vPz7uw\nnCWLL62HUFZ4II+4On3iFzOhz9U4f6mb9Lz3AYVz38Svz8xsH15C9kJnstKochtG\nRrE2qhPbhmIvfhF/sGVA7teFgwKBgQD5yBP7rRrEGiMKX9rCZGfHMGgXEvsyYDn8\nsxZeJmp1fCjuoKTFdBXvnR/8Ia1nvXLE093TSghsQ/15brySj8Oea9iE5tKuy6Y6\n5LZVmCzHlb9dDNiKqM8WIIlktPXOjFuNspRWqazagG47jAOAqtMak5V/cFNCuTp/\ndUxmVzjqQwKBgCrkKYptaWj2RImn1lJCk5m5A27n4u9ICWjheoRTrAiIEZFopehL\nGnHEMBPnCY+xPCoffYKHKh4rUPcavS5MBE9wq434UzecfkdzmsN1J7aDSCCiDiFv\nJsiPdt8kHV3L+Ve8Jg0QCpW7uBlJlYNwTYxAiLCahKcLPxrj0PG5jAPXAoGAb0Nx\nq1VDrADchP2Hy7nABJmKdGTPInR8wBTiLNQ97dF9xjYmz5HTR6YdHkm+HYzlN8oM\ncNb0g42Rtmrecwa5I7N0glbzmEs849UHZ39eyxToZkGXn8RsYrXhncuCBxy8l5Tp\nwOTaC4bUE5Bd6w2s9ZSyLk9Rt1IdPbN5ccj+oFMCgYAZidXubXmvC2Lf6cFIlV2i\nye0pmgNFEACAzzdduPjyKu+CN+wtpa9167WInRMUAZuj7inVzar2rr3mzN4laaN8\nsF3Fr/tR6t9HhsJ7HIKUpOVA5fXygLkuiPukN2WxYOExPOxqBXiv/ssmg/5nlbCD\n4PuHqdbi5Fr20qLiRyNEXA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-fbsvc@monitoreo-apicola.iam.gserviceaccount.com",
+  "client_id": "112917697064113221743",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-fbsvc%40monitoreo-apicola.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
