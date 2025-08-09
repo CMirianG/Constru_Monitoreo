@@ -333,7 +333,7 @@ class _PanelEstadoViewState extends State<PanelEstadoView> {
           Text(
             sistemaOK
                 ? 'Todos los sensores dentro de rangos normales'
-                : '${alertas.length} alerta(s) activa(s) - ${alertasAltas} crítica(s)',
+                : '${alertas.length} alerta(s) activa(s) - $alertasAltas crítica(s)',
             style: const TextStyle(
               color: Colors.white70,
               fontSize: 16,

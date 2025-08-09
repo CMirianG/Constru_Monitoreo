@@ -9,7 +9,7 @@ import 'dart:io';
 import 'package:intl/intl.dart';
 
 class SimpleReportView extends StatefulWidget {
-  const SimpleReportView({Key? key}) : super(key: key);
+  const SimpleReportView({super.key});
 
   @override
   State<SimpleReportView> createState() => _SimpleReportViewState();
@@ -470,7 +470,7 @@ class _SimpleReportViewState extends State<SimpleReportView> {
                 pw.Divider(),
                 pw.Text(
                   'Reporte generado automáticamente por el Sistema de Gestión Apícola',
-                  style: pw.TextStyle(
+                  style: const pw.TextStyle(
                     fontSize: 10,
                     color: PdfColors.grey600,
                   ),

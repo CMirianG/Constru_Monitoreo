@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class LoginView extends StatefulWidget {
-  const LoginView({Key? key}) : super(key: key);
+  const LoginView({super.key});
 
   @override
   State<LoginView> createState() => _LoginViewState();
@@ -489,19 +489,19 @@ class _LoginViewState extends State<LoginView> with TickerProviderStateMixin {
             color: const Color(0xFF1565C0).withOpacity(0.05),
             borderRadius: BorderRadius.circular(12),
           ),
-          child: Row(
+          child: const Row(
             children: [
               Icon(
                 Icons.info_outline,
-                color: const Color(0xFF1565C0),
+                color: Color(0xFF1565C0),
                 size: 20,
               ),
-              const SizedBox(width: 12),
+              SizedBox(width: 12),
               Expanded(
                 child: Text(
                   'Accede con tus credenciales para gestionar el sistema apícola',
                   style: TextStyle(
-                    color: const Color(0xFF1565C0),
+                    color: Color(0xFF1565C0),
                     fontSize: 14,
                     fontWeight: FontWeight.w500,
                   ),

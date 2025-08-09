@@ -158,9 +158,4 @@ class ReportController extends ChangeNotifier {
   void _clearError() {
     _error = null;
   }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
 }
