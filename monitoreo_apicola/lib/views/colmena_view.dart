@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import '../controllers/colmena_controller.dart';
 import '../models/colmena_model.dart';
 
-/// Vista para mostrar y gestionar la información de la colmena.
-/// Alineada con el RF-003: Registrar y actualizar información de una única colmena.
+/// Vista para la gestión de colmenas (RF-003)
+/// Permite listar, registrar, actualizar y eliminar colmenas.
 class ColmenaView extends StatefulWidget {
   const ColmenaView({super.key});
 
@@ -14,7 +14,6 @@ class ColmenaView extends StatefulWidget {
 class _ColmenaViewState extends State<ColmenaView> {
   final ColmenaController _colmenaController = ColmenaController();
 
-  // Controladores para los campos del formulario
   final TextEditingController _ubicacionController = TextEditingController();
   final TextEditingController _estadoController = TextEditingController();
   final TextEditingController _descripcionController = TextEditingController();
@@ -28,22 +27,26 @@ class _ColmenaViewState extends State<ColmenaView> {
     _cargarColmenas();
   }
 
-  /// Obtiene la lista de colmenas desde Firestore.
+  @override
+  void dispose() {
+    _ubicacionController.dispose();
+    _estadoController.dispose();
+    _descripcionController.dispose();
+    super.dispose();
+  }
+
   Future<void> _cargarColmenas() async {
     setState(() => _cargando = true);
     try {
       final colmenas = await _colmenaController.getColmenas();
-      setState(() {
-        _colmenas = colmenas;
-      });
+      setState(() => _colmenas = colmenas);
     } catch (e) {
       debugPrint("Error al cargar colmenas: $e");
     } finally {
-      setState(() => _cargando = false);
+      if (mounted) setState(() => _cargando = false);
     }
   }
 
-  /// Guarda una nueva colmena en Firestore.
   Future<void> _guardarColmena() async {
     if (_ubicacionController.text.isEmpty ||
         _estadoController.text.isEmpty ||
@@ -64,13 +67,12 @@ class _ColmenaViewState extends State<ColmenaView> {
     try {
       await _colmenaController.addColmena(nuevaColmena);
       await _cargarColmenas();
-      Navigator.pop(context); // Cierra el formulario
+      if (mounted) Navigator.pop(context);
     } catch (e) {
       debugPrint("Error al guardar colmena: $e");
     }
   }
 
-  /// Actualiza una colmena existente.
   Future<void> _actualizarColmena(Colmena colmena) async {
     try {
       await _colmenaController.updateColmena(colmena);
@@ -80,7 +82,6 @@ class _ColmenaViewState extends State<ColmenaView> {
     }
   }
 
-  /// Elimina una colmena por su ID.
   Future<void> _eliminarColmena(String id) async {
     try {
       await _colmenaController.deleteColmena(id);
@@ -90,7 +91,6 @@ class _ColmenaViewState extends State<ColmenaView> {
     }
   }
 
-  /// Abre el formulario para crear una nueva colmena.
   void _abrirFormularioNueva() {
     _ubicacionController.clear();
     _estadoController.clear();
@@ -100,23 +100,25 @@ class _ColmenaViewState extends State<ColmenaView> {
       context: context,
       builder: (_) => AlertDialog(
         title: const Text("Nueva Colmena"),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            TextField(
-              controller: _ubicacionController,
-              decoration: const InputDecoration(labelText: "Ubicación"),
-            ),
-            TextField(
-              controller: _estadoController,
-              decoration: const InputDecoration(labelText: "Estado"),
-            ),
-            TextField(
-              controller: _descripcionController,
-              decoration:
-                  const InputDecoration(labelText: "Descripción Técnica"),
-            ),
-          ],
+        content: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              TextField(
+                controller: _ubicacionController,
+                decoration: const InputDecoration(labelText: "Ubicación"),
+              ),
+              TextField(
+                controller: _estadoController,
+                decoration: const InputDecoration(labelText: "Estado"),
+              ),
+              TextField(
+                controller: _descripcionController,
+                decoration:
+                    const InputDecoration(labelText: "Descripción Técnica"),
+              ),
+            ],
+          ),
         ),
         actions: [
           TextButton(
@@ -126,6 +128,58 @@ class _ColmenaViewState extends State<ColmenaView> {
           ElevatedButton(
             onPressed: _guardarColmena,
             child: const Text("Guardar"),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _abrirFormularioEdicion(Colmena colmena) {
+    _ubicacionController.text = colmena.ubicacion;
+    _estadoController.text = colmena.estado;
+    _descripcionController.text = colmena.descripcionTecnica;
+
+    showDialog(
+      context: context,
+      builder: (_) => AlertDialog(
+        title: const Text("Editar Colmena"),
+        content: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              TextField(
+                controller: _ubicacionController,
+                decoration: const InputDecoration(labelText: "Ubicación"),
+              ),
+              TextField(
+                controller: _estadoController,
+                decoration: const InputDecoration(labelText: "Estado"),
+              ),
+              TextField(
+                controller: _descripcionController,
+                decoration:
+                    const InputDecoration(labelText: "Descripción Técnica"),
+              ),
+            ],
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text("Cancelar"),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              final colmenaEditada = Colmena(
+                id: colmena.id,
+                ubicacion: _ubicacionController.text.trim(),
+                estado: _estadoController.text.trim(),
+                descripcionTecnica: _descripcionController.text.trim(),
+              );
+              _actualizarColmena(colmenaEditada);
+              Navigator.pop(context);
+            },
+            child: const Text("Actualizar"),
           ),
         ],
       ),
@@ -157,9 +211,7 @@ class _ColmenaViewState extends State<ColmenaView> {
                       children: [
                         IconButton(
                           icon: const Icon(Icons.edit, color: Colors.blue),
-                          onPressed: () {
-                            // Se podría abrir un formulario de edición aquí
-                          },
+                          onPressed: () => _abrirFormularioEdicion(colmena),
                         ),
                         IconButton(
                           icon: const Icon(Icons.delete, color: Colors.red),
