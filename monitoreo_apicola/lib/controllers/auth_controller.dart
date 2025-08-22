@@ -1,13 +1,13 @@
+// lib/controllers/auth_controller.dart
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+import '../models/user_model.dart'; // <- usamos el model Usuario
 
 class AuthController {
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  final FirebaseFirestore _db = FirebaseFirestore.instance;
 
   Future<User?> login(String email, String password) async {
     final result = await _auth.signInWithEmailAndPassword(
-      email: email,
+      email: email.trim(),
       password: password,
     );
     return result.user;
@@ -23,19 +23,14 @@ class AuthController {
     String nombre,
     String rol,
   ) async {
-    final result = await _auth.createUserWithEmailAndPassword(
-      email: email,
+    // Delegamos en el modelo para que cree en Auth y en Firestore
+    await Usuario.crearUsuarioConPassword(
+      nombre: nombre,
+      email: email.trim().toLowerCase(),
       password: password,
+      rol: rol,
     );
-    final uid = result.user!.uid;
-
-    await _db.collection('usuarios').doc(uid).set({
-      'nombre': nombre,
-      'email': email,
-      'rol': rol,
-    });
-
-    return result.user;
+    return _auth.currentUser; // queda consistente con tu firma
   }
 
   Stream<User?> get userChanges => _auth.authStateChanges();
